@@ -1,0 +1,177 @@
+Запросы приведены в порядке, указаном в техническом задании
+POST:Регистрация (правильно)
+http://k-dmitriev.xn--80ahdri7a.site/api/register
+{
+first_name:Иван
+last_name:Иванов
+login:Cheburek
+phone:+79621226512
+password:Superparol123
+}
+
+POST:Регистрация (ошибка валидации)
+http://k-dmitriev.xn--80ahdri7a.site/api/register
+{
+first_name:Иван
+last_name:Иванов
+login:Cheburek
+phone:89621226512
+password:Superparol
+}
+
+POST:Авторизация (правильно)
+http://k-dmitriev.xn--80ahdri7a.site/api/auth
+{
+login:Cheburek
+password:Superparol123
+}
+
+POST:Авторизация (ошибка авторизации)
+http://k-dmitriev.xn--80ahdri7a.site/api/auth
+{
+login:Cheburekek
+password:Superparol123
+}
+
+GET:Просмотр списка услуг (правильно)
+http://k-dmitriev.xn--80ahdri7a.site/api/services
+
+
+POST:Оформление заказа (правильно)
+http://k-dmitriev.xn--80ahdri7a.site/api/order
+{
+services[0]:1
+services[1]:3
+services[2]:5
+}
+
+POST:Оформление заказа (не найдено)
+http://k-dmitriev.xn--80ahdri7a.site/api/order
+{
+services[0]:1
+services[1]:3
+services[2]:124124
+}
+
+POST:Оформление заказа (отсутствует барер токен)
+http://k-dmitriev.xn--80ahdri7a.site/api/order
+{
+services[0]:1
+services[1]:3
+services[2]:124124
+}
+
+DELETE:Отмена заказа (правильно)
+http://k-dmitriev.xn--80ahdri7a.site/api/orders/<59e304e6a7754ab2b43dbca5606285be701a2bab>
+
+DELETE:Отмена заказа (не найдено)
+http://k-dmitriev.xn--80ahdri7a.site/api/orders/<dsfsdfsdfsdfsdf>
+
+DELETE:Отмена заказа (отсутствует барер токен)
+http://k-dmitriev.xn--80ahdri7a.site/api/orders/<59e304e6a7754ab2b43dbca5606285be701a2bab>
+
+GET:Просмотр своего профиля (правильно)
+http://k-dmitriev.xn--80ahdri7a.site/api/profile
+
+GET:Просмотр своего профиля (отсутствует барер токен)
+http://k-dmitriev.xn--80ahdri7a.site/api/profile
+
+PUT:Изменение профиля (правильно)
+http://k-dmitriev.xn--80ahdri7a.site/api/profile
+{
+fist_name:Изменненный
+last_name:Пользователь
+password:QWwe123
+login:Hehe123
+}
+
+PUT:Изменение профиля (ошибка валидации)
+http://k-dmitriev.xn--80ahdri7a.site/api/profile
+{
+fist_name:Изенненный
+last_name:Пользователь
+password:Qdsf
+login:Hehe 
+}
+
+PUT:Изменение профиля (отсутствует барер токен)
+http://k-dmitriev.xn--80ahdri7a.site/api/profile
+{
+fist_name:Изенненный
+last_name:Пользователь
+password:Qdsf
+login:Hehe 
+}
+
+POST:Добавление услуги админом (правильно)
+http://k-dmitriev.xn--80ahdri7a.site/api/service
+{
+name:Новая услуга
+price:999
+}
+
+POST:Добавление услуги админом (ошибка валидации)
+http://k-dmitriev.xn--80ahdri7a.site/api/service
+{
+name:Новая??услуга
+price:ыва
+}
+
+POST:Добавление услуги админом (барер токен не админский)
+http://k-dmitriev.xn--80ahdri7a.site/api/service
+{
+name:Новая??услуга
+price:ыва
+}
+
+PUT:Изменение услуги админом (правильно)
+http://k-dmitriev.xn--80ahdri7a.site/api/services/<1420>
+{
+name:Старая услуга
+price:3321
+}
+
+PUT:Изменение услуги админом (ошибка валидации)
+http://k-dmitriev.xn--80ahdri7a.site/api/services/<1>
+{
+name:Новая??услуга
+price:ыва
+}
+
+
+PUT:Изменение услуги админом (барер токен не админский)
+http://k-dmitriev.xn--80ahdri7a.site/api/services/<1>
+{
+name:Новая услуга
+price:12
+}
+
+PUT:Изменение услуги админом (не найдено)
+http://k-dmitriev.xn--80ahdri7a.site/api/services/<1124124>
+{
+name:Новая услуга
+price:12
+}
+
+DELETE:Удаление услуги админом (правильно)
+http://k-dmitriev.xn--80ahdri7a.site/api/services/<1420>
+
+DELETE:Удаление услуги админом (не найдено)
+http://k-dmitriev.xn--80ahdri7a.site/api/services/<124124>
+
+DELETE:Удаление услуги админом (барер токен не админский)
+http://k-dmitriev.xn--80ahdri7a.site/api/services/<1>
+
+GET:Просмотр пользователя админом (правильно)
+http://k-dmitriev.xn--80ahdri7a.site/api/profiles/<12>
+
+GET:Просмотр пользователя админом (барер токен не админский)
+http://k-dmitriev.xn--80ahdri7a.site/api/profiles/<12>
+
+
+
+
+
+
+
+
