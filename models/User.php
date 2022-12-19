@@ -28,6 +28,12 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return 'user';
     }
+    public function scenarios()
+    {
+        return [
+            'default' => ['first_name', 'last_name', 'login', 'phone', 'password', '!is_admin','!token'],
+        ];
+    }
 
     /**
      * {@inheritdoc}
